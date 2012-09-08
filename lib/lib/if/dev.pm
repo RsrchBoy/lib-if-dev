@@ -1,6 +1,6 @@
 package lib::if::dev;
 
-# ABSTRACT: Use lib/ if we're in a dev repo
+# ABSTRACT: Use lib/ if we're in a dev root
 
 sub import {
 
@@ -23,7 +23,7 @@ __END__
 
 If you're running a script from your development root (or anything else for
 that matter), it's often fun to figure out how to include lib/ in your command
-both so that you don't need to remember to do a "-Ilib" or have to rememeber
+both so that you don't need to remember to do a C<-Ilib> or have to remember
 to remove 'use lib "lib"' statements before releasing.
 
 This package aims to solve that (for one value of "solve").
