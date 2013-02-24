@@ -17,26 +17,26 @@ done_testing;
 sub _pass {
     my ($dir) = @_;
 
-    ok none { $_ eq 'lib' } @INC, 'sanity check: lib not in @INC';
+    ok do { none { $_ eq 'lib' } @INC }, 'sanity check: lib not in @INC';
     local $CWD = "t/$dir";
     local @INC = (@INC, '../../lib');
 
     delete $INC{'test.pl'};
-    my $inc = require 'test.pl';
+    require 'test.pl';
 
-    ok any { $_ eq 'lib' } @$inc, 'lib is in @INC';
+    ok do { any { $_ eq 'lib' } @INC }, 'lib is in @INC';
 }
 
 sub _fail {
     my ($dir) = @_;
 
-    ok none { $_ eq 'lib' } @INC, 'sanity check: lib not in @INC';
+    ok do { none { $_ eq 'lib' } @INC }, 'sanity check: lib not in @INC';
     local $CWD = "t/$dir";
     local @INC = (@INC, '../../lib');
 
     delete $INC{'test.pl'};
-    my $inc = require 'test.pl';
+    require 'test.pl';
 
-    ok none { $_ eq 'lib' } @$inc, 'lib is in @INC';
+    ok do { none { $_ eq 'lib' } @INC }, 'lib is in @INC';
 }
 
