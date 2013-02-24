@@ -1,7 +1,5 @@
 Revision history for lib::if::dev
 
-{{$NEXT}}
-
 0.002     2013-02-24 08:33:42 PST-0800
 	* ensure test.pl always ends with a true value
 	* properly wrap any() and none() such that test messages are messages
